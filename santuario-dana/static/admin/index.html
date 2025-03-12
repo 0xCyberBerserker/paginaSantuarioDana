@@ -22,12 +22,20 @@
             const correctHash = "fde925859605748af220dad83df956c366098fb5b4299675d0933ca40283d752"; // Hash esperado
     
             const userPassword = prompt("Introduce la contraseña para acceder al panel de administración:");
+    
             if (!userPassword) {
                 alert("No ingresaste ninguna contraseña.");
                 return;
             }
     
-            const userHash = await sha256(userPassword);
+            // Elimina espacios en blanco por si acaso
+            const sanitizedPassword = userPassword.trim();
+            const userHash = await sha256(sanitizedPassword);
+    
+            // Mostrar en consola los valores para debug
+            console.log("Contraseña ingresada:", sanitizedPassword);
+            console.log("Hash generado:", userHash);
+            console.log("Hash esperado:", correctHash);
     
             alert(`Hash introducido: ${userHash}\nHash esperado: ${correctHash}`);
     
@@ -38,9 +46,9 @@
                 alert("Acceso concedido.");
             }
         }
+    
         authenticate();
     </script>
-    
 
 
     <!-- Navbar -->
