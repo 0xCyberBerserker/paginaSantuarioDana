@@ -1,5 +1,8 @@
 # 🐾 Santuario Dana Tagoro - Support Website 🌿
 
+![Santuario Dana Tagoro](logo.jpg)
+
+
 ### A website built to support the **Santuario Dana Tagoro**, a sanctuary dedicated to rescuing and caring for animals affected by the Dana disaster in Valencia, Spain.
 
 ## 🏡 About This Project
