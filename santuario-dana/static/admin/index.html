@@ -13,12 +13,18 @@
     <script>
         async function sha256(message) {
             console.log("Hashing mensaje:", message);
-            const msgBuffer = new TextEncoder().encode(message);
-            const hashBuffer = await crypto.subtle.digest("SHA-256", msgBuffer);
-            const hashArray = Array.from(new Uint8Array(hashBuffer));
-            const hash = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
-            console.log("Hash generado:", hash);
-            return hash;
+            try {
+                const msgBuffer = new TextEncoder().encode(message);
+                const hashBuffer = await crypto.subtle.digest("SHA-256", msgBuffer);
+                const hashArray = Array.from(new Uint8Array(hashBuffer));
+                const hash = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+                console.log("Hash generado correctamente:", hash);
+                return hash;
+            } catch (error) {
+                console.error("Error generando el hash:", error);
+                alert("Error generando el hash, revisa la consola.");
+                return null;
+            }
         }
     
         async function authenticate() {
@@ -27,7 +33,7 @@
             const correctHash = "fde925859605748af220dad83df956c366098fb5b4299675d0933ca40283d752"; // Hash esperado
     
             const userPassword = prompt("Introduce la contraseña para acceder al panel de administración:");
-            
+    
             if (!userPassword) {
                 console.log("No se ingresó ninguna contraseña.");
                 alert("No ingresaste ninguna contraseña.");
@@ -41,6 +47,11 @@
             console.log("Contraseña sanitizada:", sanitizedPassword);
     
             const userHash = await sha256(sanitizedPassword);
+            
+            if (!userHash) {
+                alert("Error generando el hash. Revisa la consola.");
+                return;
+            }
     
             console.log("Hash esperado:", correctHash);
             console.log("Hash calculado:", userHash);
