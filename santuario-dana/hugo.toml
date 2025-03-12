@@ -1,5 +1,3 @@
-baseURL = "{{ Site.baseURL }}"
-languageCode = "es-es"
 theme = "PaperMod"
 baseURL = "{{ Site.baseURL }}"
 languageCode = "es-es"
