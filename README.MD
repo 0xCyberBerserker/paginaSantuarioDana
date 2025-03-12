@@ -3,7 +3,7 @@
 
 # 🐾 Santuario Dana Tagoro - Página de Apoyo 🌿
 
-![Santuario Dana Tagoro](https://github.com/0xCyberBerserker/paginaSantuarioDana/raw/main/screenshot.png)
+![Santuario Dana Tagoro](logo.jpg)
 
 ### Una página web creada para apoyar al **Santuario Dana Tagoro**, un refugio dedicado al rescate y cuidado de animales afectados por la DANA en Valencia, España.
 
