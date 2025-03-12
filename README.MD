@@ -3,7 +3,7 @@
 
 # Santuario Dana Tagoro - Página de Apoyo
 
-![Santuario Dana Tagoro](logo.jpg)
+![Santuario Dana Tagoro](santuario-dana\static\images\logo.jpg)
 
 ### Una página web creada para apoyar al **Santuario Dana Tagoro**, un refugio dedicado al rescate y cuidado de animales afectados por la DANA en Valencia, España.
 
@@ -51,7 +51,7 @@ Si tienes preguntas o deseas contribuir, no dudes en **abrir un issue** o contac
 
 # Santuario Dana Tagoro - Support Website
 
-![Santuario Dana Tagoro](logo.jpg)
+![Santuario Dana Tagoro](santuario-dana\static\images\logo.jpg)
 
 
 ### A website built to support the **Santuario Dana Tagoro**, a sanctuary dedicated to rescuing and caring for animals affected by the Dana disaster in Valencia, Spain.
