@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Administración | Santuario Dana Tagoro</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/style.css">
+</head>
+<body class="container mt-5">
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">Santuario Dana Tagoro</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="/">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/#blog">Blog</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- Autenticación -->
+        <!-- Formulario de Login -->
+        <div id="login-form" class="container mt-5">
+            <h2 class="text-center">Acceso al Panel de Administración</h2>
+            <form id="authForm" class="p-4 border rounded shadow-sm">
+                <div class="mb-3">
+                    <label class="form-label">Usuario</label>
+                    <input type="text" class="form-control" id="username" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Contraseña</label>
+                    <input type="password" class="form-control" id="password" required>
+                </div>
+                <button type="submit" class="btn btn-custom">Iniciar Sesión</button>
+            </form>
+        </div>
+
+        <script>
+            const correctUsername = "admin";
+            const correctPasswordHash = "fde925859605748af220dad83df956c366098fb5b4299675d0933ca40283d752"; // SHA-256
+    
+            async function sha256(message) {
+                const msgBuffer = new TextEncoder().encode(message);
+                const hashBuffer = await crypto.subtle.digest("SHA-256", msgBuffer);
+                const hashArray = Array.from(new Uint8Array(hashBuffer));
+                return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+            }
+    
+            async function login(event) {
+                event.preventDefault();
+                
+                const username = document.getElementById("username").value;
+                const password = document.getElementById("password").value;
+                const passwordHash = await sha256(password);
+    
+                if (username === correctUsername && passwordHash === correctPasswordHash) {
+                    const token = btoa(JSON.stringify({ username, exp: Date.now() + 3600000 })); // Expira en 1 hora
+                    localStorage.setItem("authToken", token);
+                    showAdminPanel();
+                } else {
+                    alert("Usuario o contraseña incorrectos.");
+                }
+            }
+    
+            function checkAuth() {
+                const token = localStorage.getItem("authToken");
+                if (token) {
+                    try {
+                        const payload = JSON.parse(atob(token));
+                        if (payload.exp > Date.now()) {
+                            showAdminPanel();
+                            return;
+                        }
+                    } catch (e) {
+                        console.error("Token inválido", e);
+                    }
+                }
+                showLoginForm();
+            }
+    
+            function showAdminPanel() {
+                document.getElementById("login-form").style.display = "none";
+                document.getElementById("admin-panel").style.display = "block";
+            }
+    
+            function showLoginForm() {
+                document.getElementById("login-form").style.display = "block";
+                document.getElementById("admin-panel").style.display = "none";
+            }
+    
+            function logout() {
+                localStorage.removeItem("authToken");
+                showLoginForm();
+            }
+    
+            document.getElementById("authForm").addEventListener("submit", login);
+            checkAuth();
+        </script>
+    
+        <!-- Contenido del Panel de Administración -->
+        <div id="admin-panel" class="container mt-5" style="display: none;">
+            <h2 class="text-center">Publicar Nuevo Blog</h2>
+            <button class="btn btn-danger mb-3" onclick="logout()">Cerrar Sesión</button>
+            
+            <form id="blogForm" class="p-4 border rounded shadow-sm">
+                <div class="mb-3">
+                    <label class="form-label">Título</label>
+                    <input type="text" class="form-control" id="title" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Contenido</label>
+                    <textarea class="form-control" id="content" rows="5" required></textarea>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Subir Imagen</label>
+                    <input type="file" id="imageUpload" class="form-control">
+                    <button type="button" class="btn btn-secondary mt-2" onclick="uploadImage()">Subir Imagen</button>
+                    <p id="uploadStatus"></p>
+                </div>
+                <button type="submit" class="btn btn-custom">Publicar</button>
+            </form>
+            <script>
+                async function uploadImage() {
+                    const fileInput = document.getElementById("imageUpload");
+                    if (!fileInput.files.length) {
+                        alert("Selecciona una imagen para subir.");
+                        return;
+                    }
+        
+                    let formData = new FormData();
+                    formData.append("file", fileInput.files[0]);
+        
+                    let response = await fetch("/api/upload", {
+                        method: "POST",
+                        body: formData
+                    });
+        
+                    let result = await response.json();
+                    if (result.success) {
+                        document.getElementById("uploadStatus").innerText = "Imagen subida: " + result.url;
+                        document.getElementById("image").value = result.url;
+                    } else {
+                        alert("Error al subir la imagen.");
+                    }
+                }
+        
+                document.getElementById("blogForm").addEventListener("submit", async function(e) {
+                    e.preventDefault();
+                    let post = {
+                        title: document.getElementById("title").value,
+                        content: document.getElementById("content").value,
+                        image: document.getElementById("image").value || "/images/default.jpg",
+                        date: new Date().toISOString().split("T")[0]
+                    };
+                    await fetch("/api/blog", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify(post)
+                    });
+                    alert("Artículo publicado correctamente");
+                    window.location.reload();
+                });
+            </script>
+        </div>
+    
+
+        
+
+
+
+    
+
+</body>
+</html>
