@@ -17,18 +17,26 @@
             const hashArray = Array.from(new Uint8Array(hashBuffer));
             return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
         }
-
+    
         async function authenticate() {
-            const correctHash = "eb550ff3314e3e77b15aa840f5c9ad11adf287f9b3cb5ac73a8a35c644366b62"; // SHA-256 
+            const correctHash = "fdbd1a71e26bc44562e9f86db4a4098dd96eca71cd02bd240691a26c863e4510"; // Hash esperado
+    
             const userPassword = prompt("Introduce la contraseña para acceder al panel de administración:");
             const userHash = await sha256(userPassword);
+    
+            console.log("Hash introducido:", userHash);
+            console.log("Hash esperado:", correctHash);
+    
             if (userHash !== correctHash) {
-                alert("Acceso denegado.");
+                alert("Acceso denegado. Verifica que la contraseña es correcta.");
                 window.location.href = "/";
+            } else {
+                alert("Acceso concedido.");
             }
         }
         authenticate();
     </script>
+
 
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark">
