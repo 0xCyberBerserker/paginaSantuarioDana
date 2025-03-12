@@ -2,7 +2,6 @@ theme = "PaperMod"
 baseURL = "$HUGO_BASEURL"
 languageCode = "es-es"
 title = "Santuario Dana Tagoro"
-theme = "PaperMod"
 
 [params]
 description = "El Santuario Dana Tagoro es un refugio comprometido con el rescate y cuidado de animales."
