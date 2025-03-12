@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Santuario Dana Tagoro</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Paleta de colores refinada */
+        :root {
+            --verde-oscuro: #2E4C2C;
+            --verde-medio: #4C704B;
+            --verde-claro: #86A380;
+            --beige: #F5F5DC;
+            --blanco: #ffffff;
+            --gris-claro: #f0f0f0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--verde-claro);
+            color: var(--blanco);
+        }
+
+        /* Fondo animado */
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background-color: var(--verde-claro);
+            z-index: -1;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: var(--verde-oscuro) !important;
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .navbar-brand {
+            font-weight: 600;
+        }
+
+        /* Asegurar que los enlaces y el botón tengan la misma altura */
+        .navbar-nav .nav-link {
+            padding: 12px 20px;
+            font-weight: 500;
+            color: #ffffff !important;
+        }
+
+        /* Ajustar el botón para que tenga el mismo tamaño y alineación */
+        .navbar-nav .btn-custom {
+            padding: 10px 20px;
+            font-weight: 600;
+            background-color: var(--verde-medio);
+            border-radius: 8px;
+            transition: all 0.3s ease-in-out;
+            display: flex;
+            align-items: center; 
+            justify-content: center;
+            height: 100%;
+        }
+
+        .navbar-nav .btn-custom:hover {
+            background-color: var(--verde-oscuro);
+            transform: scale(1.05);
+        }
+
+        /* Asegurar que el navbar se mantenga ordenado */
+        .navbar-nav {
+            display: flex;
+            align-items: center;
+        }
+
+
+        /* Tarjetas */
+        .card {
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Secciones */
+        .section {
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .section h3 {
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .btn-custom {
+            background-color: var(--verde-medio);
+            border: none;
+            padding: 12px 24px;
+            font-weight: 600;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .btn-custom:hover {
+            background-color: var(--verde-oscuro);
+            transform: scale(1.05);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--verde-oscuro);
+            padding: 15px 0;
+        }
+        .carousel {
+            max-width: 600px; 
+            margin: auto;
+            height: 600px;
+            display: flex;
+            flex-direction: column;
+            object-fit: cover;
+            overflow: hidden;
+            min-height: 600px;
+            border-radius: 5%;
+        }
+        .carousel img{
+            max-width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            border-radius: 10%;
+            min-height: 400px;
+        }
+
+        
+    </style>
+</head>
+<body>
+
+<div id="particles-js"></div>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Santuario Dana Tagoro</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto align-items-center">
+          <li class="nav-item">
+            <a class="nav-link" href="#nosotros">SOBRE NOSOTROS</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contacto">CONTACTO</a>
+          </li>
+          <li class="nav-item">
+            <a class="btn btn-custom text-white ms-3" href="#donaciones">DONAR AHORA</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+<!-- Sección Principal -->
+<div class="section">
+  <div class="container">
+    <img src="logo.jpg" class="img-fluid mb-4" style="max-width: 300px;">
+    <h1>Bienvenidos al Santuario Dana Tagoro</h1>
+    <p>Refugio y protección para animales necesitados.</p>
+    <a href="#nosotros" class="btn btn-custom text-white">Conoce Nuestra Labor</a>
+  </div>
+</div>
+
+<!-- Sección Sobre Nosotros -->
+<div id="nosotros" class="section bg-light text-dark">
+  <div class="container">
+    <h3>Sobre Nosotros</h3>
+    <p>
+      El Santuario Dana Tagoro es un refugio comprometido con el rescate y cuidado de animales en situación de abandono o maltrato.
+      Nuestro objetivo es ofrecerles un hogar seguro donde puedan vivir con dignidad y amor.
+    </p>
+    <p>
+      Creemos en la educación y concienciación como herramientas clave para generar un cambio en la sociedad, fomentando el respeto y bienestar animal.
+    </p>
+    <p>
+        <strong>¡Escanea este código QR o clica encima para acceder a nuestro Instagram y no te pierdas nada de lo que hacemos!</strong>
+    </p>
+    <p>
+        <a href="https://www.instagram.com/santuariodanatagoro/" target="_blank"><img src="santuariodanatagoro_qr.png" style="max-width: 250px;"></a>
+    </p>
+  </div>
+</div>
+
+<!-- SECCIÓN CÓMO PUEDES AYUDAR -->
+<div class="section">
+    <h3 class="text-white">Cómo Puedes Ayudar</h3>
+    <div class="container">
+      <div id="ayudaCarousel" class="carousel slide" data-bs-ride="carousel"  data-bs-ride="carousel" style="max-width: 600px; margin: auto;">
+        
+        <!-- Indicadores -->
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#ayudaCarousel" data-bs-slide-to="0" class="active"></button>
+          <button type="button" data-bs-target="#ayudaCarousel" data-bs-slide-to="1"></button>
+          <button type="button" data-bs-target="#ayudaCarousel" data-bs-slide-to="2"></button>
+          <button type="button" data-bs-target="#ayudaCarousel" data-bs-slide-to="3"></button>
+          <button type="button" data-bs-target="#ayudaCarousel" data-bs-slide-to="4"></button>
+          <button type="button" data-bs-target="#ayudaCarousel" data-bs-slide-to="5"></button>
+        </div>
+  
+        <!-- Contenido del carrusel -->
+        <div class="carousel-inner">
+          <!-- 1. Haz una Donación -->
+          <div class="carousel-item active">
+            <div class="card text-dark text-center p-3">
+              <img src="foto1.jpg" class="card-img-top rounded">
+              <div class="card-body">
+                <h5>Haz una Donación</h5>
+                <p>Tu apoyo financiero nos permite proporcionar alimento, refugio y atención veterinaria a los animales rescatados.</p>
+              </div>
+            </div>
+          </div>
+  
+          <!-- 2. Sé Voluntario -->
+          <div class="carousel-item">
+            <div class="card text-dark text-center p-3">
+              <img src="foto2.jpg" class="card-img-top rounded">
+              <div class="card-body">
+                <h5>Sé Voluntario</h5>
+                <p>Ayuda con el cuidado de los animales, la limpieza del refugio o en tareas de gestión y difusión.</p>
+              </div>
+            </div>
+          </div>
+  
+          <!-- 3. Apadrina un Animal -->
+          <div class="carousel-item">
+            <div class="card text-dark text-center p-3">
+              <img src="foto3.jpg" class="card-img-top rounded">
+              <div class="card-body">
+                <h5>Apadrina un Animal</h5>
+                <p>Conviértete en el padrino de uno de nuestros refugiados y contribuye directamente a su bienestar.</p>
+              </div>
+            </div>
+          </div>
+  
+          <!-- 4. Difunde Nuestra Causa -->
+          <div class="carousel-item">
+            <div class="card text-dark text-center p-3">
+              <img src="foto4.jpg" class="card-img-top rounded">
+              <div class="card-body">
+                <h5>Difunde Nuestra Causa</h5>
+                <p>Comparte nuestra labor en redes sociales y ayuda a que más personas conozcan el santuario.</p>
+              </div>
+            </div>
+          </div>
+  
+          <!-- 5. Dona Material y Alimentos -->
+          <div class="carousel-item">
+            <div class="card text-dark text-center p-3">
+              <img src="foto5.jpg" class="card-img-top rounded">
+              <div class="card-body">
+                <h5>Dona Material y Alimentos</h5>
+                <p>Piensos, mantas, medicamentos y otros materiales son siempre bienvenidos para el bienestar de los animales.</p>
+              </div>
+            </div>
+          </div>
+  
+          <!-- 6. Apoya con tus Habilidades -->
+          <div class="carousel-item">
+            <div class="card text-dark text-center p-3">
+              <img src="foto6.jpg" class="card-img-top rounded">
+              <div class="card-body">
+                <h5>Apoya con tus Habilidades</h5>
+                <p>Si eres fotógrafo, diseñador, programador o tienes algún talento especial, tu ayuda puede marcar la diferencia.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Controles de navegación -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#ayudaCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#ayudaCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon"></span>
+        </button>
+  
+      </div>
+    </div>
+  </div>
+  
+
+
+<!-- Sección Donaciones -->
+<div id="donaciones" class="section bg-light text-dark">
+  <div class="container">
+    <h3>Donaciones</h3>
+    <p>Aquí podrás encontrar nuestros datos bancarios o métodos alternativos para realizar tu donación.</p>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item"><strong>Cuenta bancaria:</strong> ES38 0049 4409 3127 1005 2009</li>
+      <li class="list-group-item"><strong>Cuenta alternativa:</strong> ES32 2100 8072 0401 0010 1494</li>
+      <li class="list-group-item"><strong>Bizum:</strong> +34 655 85 01 05 </li>
+    </ul>
+  </div>
+</div>
+
+<!-- Sección Contacto -->
+<div id="contacto" class="section">
+  <div class="container">
+    <h3>Contacto</h3>
+    <p>Si deseas ponerte en contacto con nosotros, envíanos un correo electrónico.</p>
+    <a href="mailto:santuariodanatagorogerencia@gmail.com?subject=Consulta%20sobre%20el%20santuario" class="btn btn-custom text-white">Enviar Correo</a>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="text-center">
+  <div class="container">
+    <span>&copy; 2025 Santuario Dana Tagoro. Todos los derechos reservados.</span>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
