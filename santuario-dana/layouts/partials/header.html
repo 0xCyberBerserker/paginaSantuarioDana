@@ -40,7 +40,7 @@
         ]
       }
       </script>
-      {{ $css := resources.Get "style.css" }}
-      <link rel="stylesheet" href="{{ $css.RelPermalink | absURL }}">>
+      {{ $css := resources.Get "style.css" | relURL }}
+      <link rel="stylesheet" href="{{ $css }}">
 
 </head>
