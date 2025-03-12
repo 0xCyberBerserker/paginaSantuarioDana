@@ -1,5 +1,5 @@
 theme = "PaperMod"
-baseURL = "{{ Site.baseURL }}"
+baseURL = "$HUGO_BASEURL"
 languageCode = "es-es"
 title = "Santuario Dana Tagoro"
 theme = "PaperMod"
