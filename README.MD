@@ -1,7 +1,7 @@
-## English Below
+## [📢 English Below ↘](#santuario-dana-tagoro---support-website)
 
 
-# 🐾 Santuario Dana Tagoro - Página de Apoyo 🌿
+# Santuario Dana Tagoro - Página de Apoyo
 
 ![Santuario Dana Tagoro](logo.jpg)
 
@@ -49,7 +49,7 @@ Si tienes preguntas o deseas contribuir, no dudes en **abrir un issue** o contac
 
 
 
-# 🐾 Santuario Dana Tagoro - Support Website 🌿
+# Santuario Dana Tagoro - Support Website
 
 ![Santuario Dana Tagoro](logo.jpg)
 
