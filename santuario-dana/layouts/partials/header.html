@@ -1,5 +1,4 @@
-{{ $style := resources.Get "style.css" | fingerprint }}
-
+{{ $css := resources.Get "style.css" | fingerprint }}
 
 <head>
     <meta charset="UTF-8">
@@ -43,5 +42,6 @@
         ]
       }
       </script>
-      <link rel="stylesheet" type="text/css" href="/css/style.css">
+      <link rel="stylesheet" href="{{ $css.RelPermalink }}">
+
 </head>

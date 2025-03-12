@@ -12,3 +12,4 @@ donaciones_texto = "Aquí podrás encontrar nuestros datos bancarios o métodos 
 mainSections = ["blog"]
 relativeURLs = true
 canonifyURLs = true
+disableFingerprinting = true
