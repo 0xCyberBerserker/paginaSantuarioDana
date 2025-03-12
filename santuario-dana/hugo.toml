@@ -1,0 +1,15 @@
+theme = "PaperMod"
+baseURL = "$HUGO_BASEURL"
+languageCode = "es-es"
+title = "Santuario Dana Tagoro"
+theme = "PaperMod"
+
+[params]
+description = "El Santuario Dana Tagoro es un refugio comprometido con el rescate y cuidado de animales."
+og_image = "/images/logo.jpg"
+sobre_nosotros = "El Santuario Dana Tagoro es un refugio comprometido con el rescate y cuidado de animales en situación de abandono o maltrato."
+donaciones_texto = "Aquí podrás encontrar nuestros datos bancarios o métodos alternativos para realizar tu donación."
+mainSections = ["blog"]
+relativeURLs = true
+canonifyURLs = true
+disableFingerprinting = true
