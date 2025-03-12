@@ -12,43 +12,54 @@
     <!-- Autenticación -->
     <script>
         async function sha256(message) {
+            console.log("Hashing mensaje:", message);
             const msgBuffer = new TextEncoder().encode(message);
             const hashBuffer = await crypto.subtle.digest("SHA-256", msgBuffer);
             const hashArray = Array.from(new Uint8Array(hashBuffer));
-            return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+            const hash = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+            console.log("Hash generado:", hash);
+            return hash;
         }
     
         async function authenticate() {
+            console.log("Iniciando autenticación...");
+    
             const correctHash = "fde925859605748af220dad83df956c366098fb5b4299675d0933ca40283d752"; // Hash esperado
     
             const userPassword = prompt("Introduce la contraseña para acceder al panel de administración:");
-    
+            
             if (!userPassword) {
+                console.log("No se ingresó ninguna contraseña.");
                 alert("No ingresaste ninguna contraseña.");
                 return;
             }
     
+            console.log("Contraseña ingresada:", userPassword);
+    
             // Elimina espacios en blanco por si acaso
             const sanitizedPassword = userPassword.trim();
+            console.log("Contraseña sanitizada:", sanitizedPassword);
+    
             const userHash = await sha256(sanitizedPassword);
     
-            // Mostrar en consola los valores para debug
-            console.log("Contraseña ingresada:", sanitizedPassword);
-            console.log("Hash generado:", userHash);
             console.log("Hash esperado:", correctHash);
+            console.log("Hash calculado:", userHash);
     
             alert(`Hash introducido: ${userHash}\nHash esperado: ${correctHash}`);
     
             if (userHash !== correctHash) {
+                console.log("Hashes no coinciden. Acceso denegado.");
                 alert("Acceso denegado. Verifica la contraseña.");
                 window.location.href = "/";
             } else {
+                console.log("Hashes coinciden. Acceso concedido.");
                 alert("Acceso concedido.");
             }
         }
     
         authenticate();
     </script>
+    
 
 
     <!-- Navbar -->
