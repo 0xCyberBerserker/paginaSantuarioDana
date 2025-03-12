@@ -9,70 +9,6 @@
 </head>
 <body class="container mt-5">
 
-    <!-- Autenticación -->
-    <script>
-        async function sha256(message) {
-            console.log("Hashing mensaje:", message);
-            try {
-                const msgBuffer = new TextEncoder().encode(message);
-                const hashBuffer = await crypto.subtle.digest("SHA-256", msgBuffer);
-                const hashArray = Array.from(new Uint8Array(hashBuffer));
-                const hash = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
-                console.log("Hash generado correctamente:", hash);
-                return hash;
-            } catch (error) {
-                console.error("Error generando el hash:", error);
-                alert("Error generando el hash, revisa la consola.");
-                return null;
-            }
-        }
-    
-        async function authenticate() {
-            console.log("Iniciando autenticación...");
-    
-            const correctHash = "fde925859605748af220dad83df956c366098fb5b4299675d0933ca40283d752"; // Hash esperado
-    
-            const userPassword = prompt("Introduce la contraseña para acceder al panel de administración:");
-    
-            if (!userPassword) {
-                console.log("No se ingresó ninguna contraseña.");
-                alert("No ingresaste ninguna contraseña.");
-                return;
-            }
-    
-            console.log("Contraseña ingresada:", userPassword);
-    
-            // Elimina espacios en blanco por si acaso
-            const sanitizedPassword = userPassword.trim();
-            console.log("Contraseña sanitizada:", sanitizedPassword);
-    
-            const userHash = await sha256(sanitizedPassword);
-            
-            if (!userHash) {
-                alert("Error generando el hash. Revisa la consola.");
-                return;
-            }
-    
-            console.log("Hash esperado:", correctHash);
-            console.log("Hash calculado:", userHash);
-    
-            alert(`Hash introducido: ${userHash}\nHash esperado: ${correctHash}`);
-    
-            if (userHash !== correctHash) {
-                console.log("Hashes no coinciden. Acceso denegado.");
-                alert("Acceso denegado. Verifica la contraseña.");
-                window.location.href = "/";
-            } else {
-                console.log("Hashes coinciden. Acceso concedido.");
-                alert("Acceso concedido.");
-            }
-        }
-    
-        authenticate();
-    </script>
-    
-
-
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container-fluid">
@@ -89,74 +25,158 @@
         </div>
     </nav>
 
-    <!-- Formulario para nuevo post -->
-    <div class="container mt-5">
-        <h2 class="text-center">Publicar Nuevo Blog</h2>
-        <form id="blogForm" class="p-4 border rounded shadow-sm">
-            <div class="mb-3">
-                <label class="form-label">Título</label>
-                <input type="text" class="form-control" id="title" required>
-            </div>
-            <div class="mb-3">
-                <label class="form-label">Contenido</label>
-                <textarea class="form-control" id="content" rows="5" required></textarea>
-            </div>
-            <div class="mb-3">
-                <label class="form-label">Subir Imagen</label>
-                <input type="file" id="imageUpload" class="form-control">
-                <button type="button" class="btn btn-secondary mt-2" onclick="uploadImage()">Subir Imagen</button>
-                <p id="uploadStatus"></p>
-            </div>
-            <div class="mb-3">
-                <label class="form-label">Imagen (URL)</label>
-                <input type="text" class="form-control" id="image">
-            </div>
-            <button type="submit" class="btn btn-custom">Publicar</button>
-        </form>
-    </div>
 
-    <script>
-        async function uploadImage() {
-            const fileInput = document.getElementById("imageUpload");
-            if (!fileInput.files.length) {
-                alert("Selecciona una imagen para subir.");
-                return;
+    <!-- Autenticación -->
+        <!-- Formulario de Login -->
+        <div id="login-form" class="container mt-5">
+            <h2 class="text-center">Acceso al Panel de Administración</h2>
+            <form id="authForm" class="p-4 border rounded shadow-sm">
+                <div class="mb-3">
+                    <label class="form-label">Usuario</label>
+                    <input type="text" class="form-control" id="username" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Contraseña</label>
+                    <input type="password" class="form-control" id="password" required>
+                </div>
+                <button type="submit" class="btn btn-custom">Iniciar Sesión</button>
+            </form>
+        </div>
+
+        <script>
+            const correctUsername = "admin";
+            const correctPasswordHash = "fde925859605748af220dad83df956c366098fb5b4299675d0933ca40283d752"; // SHA-256 de &Bgr^4bp$n4BV!ZT$dd
+    
+            async function sha256(message) {
+                const msgBuffer = new TextEncoder().encode(message);
+                const hashBuffer = await crypto.subtle.digest("SHA-256", msgBuffer);
+                const hashArray = Array.from(new Uint8Array(hashBuffer));
+                return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
             }
-
-            let formData = new FormData();
-            formData.append("file", fileInput.files[0]);
-
-            let response = await fetch("/api/upload", {
-                method: "POST",
-                body: formData
-            });
-
-            let result = await response.json();
-            if (result.success) {
-                document.getElementById("uploadStatus").innerText = "Imagen subida: " + result.url;
-                document.getElementById("image").value = result.url;
-            } else {
-                alert("Error al subir la imagen.");
+    
+            async function login(event) {
+                event.preventDefault();
+                
+                const username = document.getElementById("username").value;
+                const password = document.getElementById("password").value;
+                const passwordHash = await sha256(password);
+    
+                if (username === correctUsername && passwordHash === correctPasswordHash) {
+                    const token = btoa(JSON.stringify({ username, exp: Date.now() + 3600000 })); // Expira en 1 hora
+                    localStorage.setItem("authToken", token);
+                    showAdminPanel();
+                } else {
+                    alert("Usuario o contraseña incorrectos.");
+                }
             }
-        }
+    
+            function checkAuth() {
+                const token = localStorage.getItem("authToken");
+                if (token) {
+                    try {
+                        const payload = JSON.parse(atob(token));
+                        if (payload.exp > Date.now()) {
+                            showAdminPanel();
+                            return;
+                        }
+                    } catch (e) {
+                        console.error("Token inválido", e);
+                    }
+                }
+                showLoginForm();
+            }
+    
+            function showAdminPanel() {
+                document.getElementById("login-form").style.display = "none";
+                document.getElementById("admin-panel").style.display = "block";
+            }
+    
+            function showLoginForm() {
+                document.getElementById("login-form").style.display = "block";
+                document.getElementById("admin-panel").style.display = "none";
+            }
+    
+            function logout() {
+                localStorage.removeItem("authToken");
+                showLoginForm();
+            }
+    
+            document.getElementById("authForm").addEventListener("submit", login);
+            checkAuth();
+        </script>
+    
+        <!-- Contenido del Panel de Administración -->
+        <div id="admin-panel" class="container mt-5" style="display: none;">
+            <h2 class="text-center">Publicar Nuevo Blog</h2>
+            <button class="btn btn-danger mb-3" onclick="logout()">Cerrar Sesión</button>
+            
+            <form id="blogForm" class="p-4 border rounded shadow-sm">
+                <div class="mb-3">
+                    <label class="form-label">Título</label>
+                    <input type="text" class="form-control" id="title" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Contenido</label>
+                    <textarea class="form-control" id="content" rows="5" required></textarea>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Subir Imagen</label>
+                    <input type="file" id="imageUpload" class="form-control">
+                    <button type="button" class="btn btn-secondary mt-2" onclick="uploadImage()">Subir Imagen</button>
+                    <p id="uploadStatus"></p>
+                </div>
+                <button type="submit" class="btn btn-custom">Publicar</button>
+            </form>
+            <script>
+                async function uploadImage() {
+                    const fileInput = document.getElementById("imageUpload");
+                    if (!fileInput.files.length) {
+                        alert("Selecciona una imagen para subir.");
+                        return;
+                    }
+        
+                    let formData = new FormData();
+                    formData.append("file", fileInput.files[0]);
+        
+                    let response = await fetch("/api/upload", {
+                        method: "POST",
+                        body: formData
+                    });
+        
+                    let result = await response.json();
+                    if (result.success) {
+                        document.getElementById("uploadStatus").innerText = "Imagen subida: " + result.url;
+                        document.getElementById("image").value = result.url;
+                    } else {
+                        alert("Error al subir la imagen.");
+                    }
+                }
+        
+                document.getElementById("blogForm").addEventListener("submit", async function(e) {
+                    e.preventDefault();
+                    let post = {
+                        title: document.getElementById("title").value,
+                        content: document.getElementById("content").value,
+                        image: document.getElementById("image").value || "/images/default.jpg",
+                        date: new Date().toISOString().split("T")[0]
+                    };
+                    await fetch("/api/blog", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify(post)
+                    });
+                    alert("Artículo publicado correctamente");
+                    window.location.reload();
+                });
+            </script>
+        </div>
+    
 
-        document.getElementById("blogForm").addEventListener("submit", async function(e) {
-            e.preventDefault();
-            let post = {
-                title: document.getElementById("title").value,
-                content: document.getElementById("content").value,
-                image: document.getElementById("image").value || "/images/default.jpg",
-                date: new Date().toISOString().split("T")[0]
-            };
-            await fetch("/api/blog", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(post)
-            });
-            alert("Artículo publicado correctamente");
-            window.location.reload();
-        });
-    </script>
+        
+
+
+
+    
 
 </body>
 </html>
