@@ -1,0 +1,156 @@
+{{ define "main" }}
+
+<!-- Sección Principal -->
+<div class="section">
+    <div class="container text-center">
+      <img src="{{ .Site.BaseURL }}/images/logo.jpg" class="img-fluid mb-4" alt="Logo del Santuario Dana Tagoro" style="max-width: 300px;">
+      <h1>Bienvenidos al Santuario Dana Tagoro</h1>
+      <p>Refugio y protección para animales necesitados.</p>
+      <a href="#nosotros" class="btn btn-custom text-white">Conoce Nuestra Labor</a>
+    </div>
+    </div>
+    
+    <!-- Sección Sobre Nosotros -->
+    <section id="nosotros" class="section bg-light text-dark">
+    <div class="container">
+      <h2>Sobre Nosotros</h2>
+      <p>
+        El Santuario Dana Tagoro es un refugio comprometido con el rescate y cuidado de animales en situación de abandono o maltrato.
+        Nuestro objetivo es ofrecerles un hogar seguro donde puedan vivir con dignidad y amor.
+      </p>
+      <p>
+        Creemos en la educación y concienciación como herramientas clave para generar un cambio en la sociedad, fomentando el respeto y bienestar animal.
+      </p>
+      <p>
+          <strong>¡Síguenos en Instagram para conocer más sobre nuestra labor!</strong>
+      </p>
+      <p>
+          <a href="https://www.instagram.com/santuariodanatagoro/" target="_blank">
+              <img src="{{ .Site.BaseURL }}/images/santuariodanatagoro_qr.png" alt="QR para Instagram del Santuario Dana Tagoro" style="max-width: 250px;">
+          </a>
+      </p>
+    </div>
+    </section>
+    
+    <!-- SECCIÓN CÓMO PUEDES AYUDAR -->
+    <section class="section">
+        <h3 class="text-white">Cómo Puedes Ayudar</h3>
+        <div class="container">
+          <div id="ayudaCarousel" class="carousel slide" data-bs-ride="carousel"  data-bs-ride="carousel" style="max-width: 600px; margin: auto;">
+            
+            <!-- Indicadores -->
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#ayudaCarousel" data-bs-slide-to="0" class="active"></button>
+              <button type="button" data-bs-target="#ayudaCarousel" data-bs-slide-to="1"></button>
+              <button type="button" data-bs-target="#ayudaCarousel" data-bs-slide-to="2"></button>
+              <button type="button" data-bs-target="#ayudaCarousel" data-bs-slide-to="3"></button>
+              <button type="button" data-bs-target="#ayudaCarousel" data-bs-slide-to="4"></button>
+              <button type="button" data-bs-target="#ayudaCarousel" data-bs-slide-to="5"></button>
+            </div>
+      
+            <!-- Contenido del carrusel -->
+            <div class="carousel-inner">
+              <!-- 1. Haz una Donación -->
+              <div class="carousel-item active">
+                <div class="card text-dark text-center p-3">
+                  <img src="{{ .Site.BaseURL }}/images/foto1.jpg" class="card-img-top rounded">
+                  <div class="card-body">
+                    <h5>Haz una Donación</h5>
+                    <p>Tu apoyo financiero nos permite proporcionar alimento, refugio y atención veterinaria a los animales rescatados.</p>
+                  </div>
+                </div>
+              </div>
+      
+              <!-- 2. Sé Voluntario -->
+              <div class="carousel-item">
+                <div class="card text-dark text-center p-3">
+                  <img src="{{ .Site.BaseURL }}/images/foto2.jpg" class="card-img-top rounded">
+                  <div class="card-body">
+                    <h5>Sé Voluntario</h5>
+                    <p>Ayuda con el cuidado de los animales, la limpieza del refugio o en tareas de gestión y difusión.</p>
+                  </div>
+                </div>
+              </div>
+      
+              <!-- 3. Apadrina un Animal -->
+              <div class="carousel-item">
+                <div class="card text-dark text-center p-3">
+                  <img src="{{ .Site.BaseURL }}/images/foto3.jpg" class="card-img-top rounded">
+                  <div class="card-body">
+                    <h5>Apadrina un Animal</h5>
+                    <p>Conviértete en el padrino de uno de nuestros refugiados y contribuye directamente a su bienestar.</p>
+                  </div>
+                </div>
+              </div>
+      
+              <!-- 4. Difunde Nuestra Causa -->
+              <div class="carousel-item">
+                <div class="card text-dark text-center p-3">
+                  <img src="{{ .Site.BaseURL }}/images/foto4.jpg" class="card-img-top rounded">
+                  <div class="card-body">
+                    <h5>Difunde Nuestra Causa</h5>
+                    <p>Comparte nuestra labor en redes sociales y ayuda a que más personas conozcan el santuario.</p>
+                  </div>
+                </div>
+              </div>
+      
+              <!-- 5. Dona Material y Alimentos -->
+              <div class="carousel-item">
+                <div class="card text-dark text-center p-3">
+                  <img src="{{ .Site.BaseURL }}/images/foto5.jpg" class="card-img-top rounded">
+                  <div class="card-body">
+                    <h5>Dona Material y Alimentos</h5>
+                    <p>Piensos, mantas, medicamentos y otros materiales son siempre bienvenidos para el bienestar de los animales.</p>
+                  </div>
+                </div>
+              </div>
+      
+              <!-- 6. Apoya con tus Habilidades -->
+              <div class="carousel-item">
+                <div class="card text-dark text-center p-3">
+                  <img src="{{ .Site.BaseURL }}/images/foto6.jpg" class="card-img-top rounded">
+                  <div class="card-body">
+                    <h5>Apoya con tus Habilidades</h5>
+                    <p>Si eres fotógrafo, diseñador, programador o tienes algún talento especial, tu ayuda puede marcar la diferencia.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+      
+            <!-- Controles de navegación -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#ayudaCarousel" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#ayudaCarousel" data-bs-slide="next">
+              <span class="carousel-control-next-icon"></span>
+            </button>
+      
+          </div>
+        </div>
+      </section>
+      
+    
+    
+    <!-- Sección Donaciones -->
+    <section id="donaciones" class="section bg-light text-dark">
+      <div class="container">
+        <h3>Donaciones</h3>
+        <p>Aquí podrás encontrar nuestros datos bancarios o métodos alternativos para realizar tu donación.</p>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"><strong>Cuenta bancaria:</strong> ES38 0049 4409 3127 1005 2009</li>
+          <li class="list-group-item"><strong>Cuenta alternativa:</strong> ES32 2100 8072 0401 0010 1494</li>
+          <li class="list-group-item"><strong>Bizum:</strong> +34 655 85 01 05 </li>
+        </ul>
+      </div>
+    </section>
+    
+    <!-- Sección Contacto -->
+    <section id="contacto" class="section">
+      <div class="container">
+        <h3>Contacto</h3>
+        <p>Si deseas ponerte en contacto con nosotros, envíanos un correo electrónico.</p>
+        <a href="mailto:santuariodanatagorogerencia@gmail.com?subject=Consulta%20sobre%20el%20santuario" class="btn btn-custom text-white">Enviar Correo</a>
+      </div>
+    </section>
+
+    {{ end }}
