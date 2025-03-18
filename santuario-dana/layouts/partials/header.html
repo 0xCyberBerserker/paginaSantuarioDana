@@ -16,6 +16,25 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    {{ range .Site.Params.favicon32 -}}
+        <link rel="icon" type="image/png" sizes="32x32" href="{{ . | absURL }}">
+    {{- end }}
+  
+    {{ range .Site.Params.favicon16 -}}
+        <link rel="icon" type="image/png" sizes="16x16" href="{{ . | absURL }}">
+    {{- end }}
+
+    {{ range .Site.Params.appletouch_favicon -}}
+        <link rel="apple-touch-icon" type="image/png" sizes="32x32" href="{{ . | absURL }}">
+    {{- end }}
+
+    {{ range .Site.Params.web_manifest -}}
+        <link rel="manifest" href="{{ . | absURL }}">
+    {{- end }}
+    
+    
+
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
