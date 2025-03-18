@@ -1,11 +1,10 @@
-## [📢 English Below ↘](#santuario-dana-tagoro---support-website)
-
+## [💼 English Below ⤷](#santuario-dana-tagoro---support-website)
 
 # Santuario Dana Tagoro - Página de Apoyo
 
 ![Santuario Dana Tagoro](logo.jpg)
 
-### Una página web creada para apoyar al **Santuario Dana Tagoro** con tecnología [Hugo](/https://gohugo.io/), un refugio dedicado al rescate y cuidado de animales afectados por la DANA en Valencia, España.
+### Una página web creada para apoyar al **Santuario Dana Tagoro** con tecnología [Hugo](https://gohugo.io/), un generador de sitios estáticos rápido y flexible, junto con **Bootstrap 5, JavaScript y Cloudflare Pages**, proporcionando un refugio digital para la causa.
 
 ## 🏡 Sobre Este Proyecto
 
@@ -17,10 +16,12 @@ El objetivo es proporcionar al santuario una **plataforma profesional y accesibl
 - **Difundir la causa** y aumentar la visibilidad del trabajo del santuario.
 
 ## 🎯 Características
-- 📌 **Secciones informativas** sobre la labor del santuario.
-- 💚 **Página de donaciones** con los datos bancarios para apoyar la causa.
-- 🤝 **Oportunidades de voluntariado** para colaborar activamente.
-- 📢 **Integración con redes sociales** para compartir información y novedades.
+- 📌 **Sitio web estático generado con Hugo** para mayor velocidad y seguridad.
+- 💚 **Diseño responsivo con Bootstrap 5** para una mejor experiencia en cualquier dispositivo.
+- 🚼 **Oportunidades de voluntariado** para colaborar activamente.
+- 📲 **Integración con redes sociales** para compartir información y novedades.
+- 📈 **SEO optimizado** para mejor visibilidad en buscadores.
+- 🚀 **Hospedado en Cloudflare Pages** para tiempos de carga rápidos y alta disponibilidad.
 
 ## 💡 Cómo Puedes Ayudar
 Si deseas **apoyar este proyecto**, puedes:
@@ -30,9 +31,11 @@ Si deseas **apoyar este proyecto**, puedes:
 
 ## 🛠️ Tecnologías Utilizadas
 Esta web ha sido construida con:
-- **HTML5, CSS3, Bootstrap 5** para un diseño moderno y responsive.
+- **Hugo** (🚀 ultrarrápido generador de sitios estáticos).
+- **Bootstrap 5** para un diseño moderno y adaptable.
 - **JavaScript** para interactividad y animaciones.
-- **Cloudflare Hosting** para asegurar un acceso rápido y seguro.
+- **Cloudflare Pages** para asegurar un acceso rápido y seguro.
+- **Markdown** para facilitar la edición de contenido.
 
 ## 💖 Agradecimientos
 Un enorme agradecimiento a todas las personas que apoyan esta causa. Tu ayuda **marca la diferencia** en la vida de los animales.
@@ -41,20 +44,19 @@ Si tienes preguntas o deseas contribuir, no dudes en **abrir un issue** o contac
 
 ---
 
-📢 **Visita la web:** [Santuario Dana Tagoro](https://example.com)  
-📷 **Síguenos en Instagram:** [@santuariodanatagoro](https://www.instagram.com/santuariodanatagoro/)  
-✉️ **Contacto:** [santuariodanatagorogerencia@gmail.com](mailto:santuariodanatagorogerencia@gmail.com)
+💜 **Visita la web:** [Santuario Dana Tagoro](https://santuariodanatagoro.org) dominio pendiente de compra.
+📸 **Síguenos en Instagram:** [@santuariodanatagoro](https://www.instagram.com/santuariodanatagoro/)  
+📧 **Contacto:** [santuariodanatagorogerencia@gmail.com](mailto:santuariodanatagorogerencia@gmail.com)
 
 🌿🐾 **Juntos podemos salvar vidas.** 🐾🌿
 
-
+---
 
 # Santuario Dana Tagoro - Support Website
 
 ![Santuario Dana Tagoro](logo.jpg)
 
-
-### A website built to support the **Santuario Dana Tagoro** with [Hugo](/https://gohugo.io/) tecnology, a sanctuary dedicated to rescuing and caring for animals affected by the Dana disaster in Valencia, Spain.
+### A website built to support the **Santuario Dana Tagoro** with [Hugo](https://gohugo.io/), a powerful and flexible static site generator, combined with **Bootstrap 5, JavaScript, and Cloudflare Pages**, providing a digital refuge for the cause.
 
 ## 🏡 About This Project
 
@@ -66,10 +68,12 @@ Our goal is to provide the sanctuary with a **professional, user-friendly platfo
 - **Spread awareness** by sharing the sanctuary’s work and mission.
 
 ## 🎯 Features
-- 📌 **Informational sections** about the sanctuary's work.
-- 💚 **Donation page** with banking details to support the cause.
-- 🤝 **Volunteer opportunities** to help directly at the sanctuary.
-- 📢 **Social media integration** to spread awareness and updates.
+- 📌 **Static site powered by Hugo** for speed and security.
+- 💚 **Responsive design with Bootstrap 5** for an optimal experience across devices.
+- 🚼 **Volunteer opportunities** to help directly at the sanctuary.
+- 📲 **Social media integration** to share updates and awareness.
+- 📈 **SEO optimization** for better search visibility.
+- 🚀 **Hosted on Cloudflare Pages** for fast performance and reliability.
 
 ## 💡 How You Can Help
 If you want to **support this project**, you can:
@@ -79,9 +83,11 @@ If you want to **support this project**, you can:
 
 ## 🛠️ Tech Stack
 This website is built using:
-- **HTML5, CSS3, Bootstrap 5** for responsive design.
-- **JavaScript** for animations and interactivity.
-- **Cloudflare hosting** to ensure fast and secure access.
+- **Hugo** (🚀 ultra-fast static site generator).
+- **Bootstrap 5** for modern, responsive design.
+- **JavaScript** for interactivity and animations.
+- **Cloudflare Pages** to ensure fast and secure access.
+- **Markdown** for easy content management.
 
 ## 💖 Special Thanks
 A big thank you to everyone who supports this cause. Your help makes a **real difference** for the animals in need.
@@ -90,8 +96,8 @@ For any questions or contributions, feel free to **open an issue** or contact us
 
 ---
 
-📢 **Visit the website:** [Santuario Dana Tagoro](https://santuariodanatagoro.org)  
-📷 **Follow us on Instagram:** [@santuariodanatagoro](https://www.instagram.com/santuariodanatagoro/)  
-✉️ **Contact us:** [santuariodanatagorogerencia@gmail.com](mailto:santuariodanatagorogerencia@gmail.com)
+💜 **Visit the website:** [Santuario Dana Tagoro](https://santuariodanatagoro.org) domain waiting for buying.
+📸 **Follow us on Instagram:** [@santuariodanatagoro](https://www.instagram.com/santuariodanatagoro/)  
+📧 **Contact us:** [santuariodanatagorogerencia@gmail.com](mailto:santuariodanatagorogerencia@gmail.com)
 
 🌿🐾 **Together, we can save lives.** 🐾🌿
