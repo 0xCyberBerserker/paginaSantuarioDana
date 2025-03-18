@@ -11,9 +11,11 @@ donaciones_texto = "Aquí podrás encontrar nuestros datos bancarios o métodos 
 relativeURLs = true
 canonifyURLs = true
 disableFingerprinting = true
+enableRobotsTXT = true
 
 custom_css = ["css/style.css"]
 favicon32 = ["favicon/favicon-32x32.png"]
 favicon16 = ["favicon/favicon-16x16.png"]
 appletouch_favicon = ["favicon/appletouch_favicon.png"]
 web_manifest = ["favicon/site.webmanifest"]
+
