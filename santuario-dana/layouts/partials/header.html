@@ -41,7 +41,10 @@
       }
       </script>
       
-      <link rel="stylesheet" href="/assets/style.css">
+      // css
+      {{ range .Site.Params.custom_css -}}
+          <link rel="stylesheet" href="{{ . | absURL }}">
+      {{- end }}
 
 
 </head>

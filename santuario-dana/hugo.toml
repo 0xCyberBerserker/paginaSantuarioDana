@@ -11,3 +11,5 @@ donaciones_texto = "Aquí podrás encontrar nuestros datos bancarios o métodos 
 relativeURLs = true
 canonifyURLs = true
 disableFingerprinting = true
+
+custom_css = ["css/custom.css"]
