@@ -40,6 +40,8 @@
         ]
       }
       </script>
-      <link rel="stylesheet" href="/assets/style.css">
+      
+      {{ $style := resources.Get "assets/style.css" | minify | fingerprint }}
+      <link rel="stylesheet" href="{{ $style.Permalink }}">
 
 </head>
