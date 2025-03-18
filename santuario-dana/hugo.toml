@@ -12,4 +12,4 @@ relativeURLs = true
 canonifyURLs = true
 disableFingerprinting = true
 
-custom_css = ["static/css/custom.css"]
+custom_css = ["css/style.css"]
