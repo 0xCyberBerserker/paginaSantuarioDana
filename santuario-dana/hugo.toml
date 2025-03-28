@@ -1,5 +1,5 @@
 theme = "PaperMod"
-baseURL = ""
+baseURL = "https://santuariodana.org"
 languageCode = "es-es"
 title = "Santuario Dana Tagoro"
 
