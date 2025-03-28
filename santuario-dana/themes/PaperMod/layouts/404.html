@@ -1,7 +1,15 @@
 {{ define "main" }}
-  <main class="container d-flex align-items-center justify-content-center">
-    <h1>Página no encontrada</h1>
-    <p>Lo sentimos, pero la página que buscas no existe o ha sido movida.</p>
-    <a href="{{ .Site.BaseURL }}" class="btn btn-custom text-white">Volver al inicio</a>
+  <main class="container">
+    <div class=" d-flex align-items-center justify-content-center">
+        <p>
+            <h1>Página no encontrada</h1>
+        </p>    
+        <p>
+            Lo sentimos, pero la página que buscas no existe o ha sido movida.
+        </p>
+        <p>
+            <a href="{{ .Site.BaseURL }}" class="btn btn-custom text-white">Volver al inicio</a>
+        </p>    
+    </div>
   </main>
 {{ end }}
