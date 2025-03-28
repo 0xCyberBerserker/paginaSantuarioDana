@@ -1,15 +1,29 @@
 {{ define "main" }}
-  <main class="container">
-    <div class=" d-flex align-items-center justify-content-center">
-        <p>
-            <h1>Página no encontrada</h1>
-        </p>    
-        <p>
-            Lo sentimos, pero la página que buscas no existe o ha sido movida.
-        </p>
-        <p>
-            <a href="{{ .Site.BaseURL }}" class="btn btn-custom text-white">Volver al inicio</a>
-        </p>    
+  <main class="container d-flex align-items-center justify-content-center" style="min-height: 80vh;">
+    <div style="
+      background-color: white;
+      color: #222;
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+      max-width: 600px;
+      width: 100%;
+      text-align: center;
+    ">
+      <h1 style="margin-bottom: 1rem;">Página no encontrada</h1>
+      <p style="margin-bottom: 1rem;">
+        Lo sentimos, pero la página que buscas no existe o ha sido movida.
+      </p>
+      <p>
+        <a href="{{ .Site.BaseURL }}" class="btn btn-custom text-white" style="
+          background-color: #444;
+          padding: 0.5rem 1.5rem;
+          border-radius: 0.5rem;
+          text-decoration: none;
+        ">
+          Volver al inicio
+        </a>
+      </p>
     </div>
   </main>
 {{ end }}
